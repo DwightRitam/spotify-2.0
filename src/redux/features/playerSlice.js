@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   currentSongs: [],
+  favSongs: [],
   currentIndex: 0,
   isActive: false,
   isPlaying: false,
@@ -57,9 +58,15 @@ const playerSlice = createSlice({
     selectGenreListId: (state, action) => {
       state.genreListId = action.payload;
     },
+    setFavsongs: (state, action) => {
+      state.favSongs = action.payload;
+    },
   },
 });
 
-export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId } = playerSlice.actions;
+export const { setActiveSong, nextSong, prevSong, playPause, selectGenreListId,setFavsongs } = playerSlice.actions;
+
+export const getFavsongs=(state)=> state.player.favSongs
+
 
 export default playerSlice.reducer;

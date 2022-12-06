@@ -6,6 +6,7 @@ import { useDispatch,useSelector } from 'react-redux';
 
 import { useGetSongsByGenreQuery, useGetTopChartsQuery } from '../redux/services/shazamCore';
 import { selectGenreListId } from '../redux/features/playerSlice';
+import { useRef } from 'react';
 
 const Discover = () => 
 {
@@ -15,16 +16,15 @@ const Discover = () =>
 
     const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
 
-    const genreTitle='Pop';
     if(isFetching) return <Loader title="Loading songs...." />;    
     if(error) return <Error />;
-
+    
  
     return(
         
         <div className='flex flex-col'>
-            <div className='w-full flex justify-between flex-col items-center sm:flex-row mt-4 mb-10'>
-                <h2 className='font-bold text-3xl text-white'>Discover {genreTitle}</h2>
+            <div     className='w-full flex justify-between flex-col items-center sm:flex-row mt-4 mb-10'>
+                <h2 className='font-bold text-3xl text-white'>Discover {genreListId}</h2>
                 <select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
           value={genreListId || 'pop'}
@@ -35,7 +35,7 @@ const Discover = () =>
                 
             </div>
 
-            <div className='flex flex-wrap sm:justify-start justify-center gap-8'>
+            <div className='flex flex-wrap sm:justify-start justify-center gap-8 w-[90%] m-auto lg:w-full '>
                 {data?.map((song,i)=>(
                     <SongCard
                     key={song.key}

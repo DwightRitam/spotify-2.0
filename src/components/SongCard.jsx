@@ -1,20 +1,27 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import PlayPause from "./PlayPause";
 // import {AiOutlineHeart} from 'react-icons'
 import { FaHeart } from "react-icons/fa";
 
-import { playPause ,setActiveSong} from "../redux/features/playerSlice";
+import { getFavsongs, playPause ,setActiveSong, setFavsongs} from "../redux/features/playerSlice";
+import { useState } from "react";
 
 const SongCard = ({song,i,activeSong,isPlaying,data}) => {
 
+  const dispatch= useDispatch();
+  const getfavsong=useSelector(getFavsongs)
+  // console.log(getfavs);
+  const [favmusic, setFavmusic] = useState()
+
   const addtofav=()=>{
     console.log("adding to  fav");
+    dispatch(setFavsongs(song))
+    // console.log(song);
   }
 
   // const activeSong ="test"
-  const dispatch= useDispatch();
     const handlePauseClick = () => {
     dispatch(playPause(false));
   };

@@ -32,8 +32,8 @@ const Sidebar = () =>
 {
 const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 return ( <>
-  <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]">
-    <img src="https://www.freepnglogos.com/uploads/spotify-logo-png/file-spotify-logo-png-4.png" alt="logo" className="w-full h-14 object-contain" />
+  <div className="md:flex hidden flex-col w-[150px] py-10 px-4 bg-[#191624]">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="logo" className="w-full h-14 object-contain" />
     <h2 className=' text-center text-2xl font-serif mt-[2px] text-green-600'>Spotify</h2>
     <NavLinks />
   </div>
@@ -41,9 +41,9 @@ return ( <>
   {/* Mobile sidebar */}
   <div className="absolute md:hidden block top-6 right-3">
     {!mobileMenuOpen ? (
-      <HiOutlineMenu className="w-6 h-6 mr-2 text-white" onClick={() => setMobileMenuOpen(true)} />
+      <HiOutlineMenu className="w-6 h-[2.5rem] mr-2 text-white" onClick={() => setMobileMenuOpen(true)} />
     ) : (
-      <RiCloseLine className="w-6 h-6 mr-2 text-white" onClick={() => setMobileMenuOpen(false)} />
+      <RiCloseLine className="w-6  h-[2.5rem] mr-2 text-white" onClick={() => setMobileMenuOpen(false)} />
     )}
   </div>
 

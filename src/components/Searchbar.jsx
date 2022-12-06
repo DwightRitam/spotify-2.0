@@ -18,14 +18,14 @@ const Searchbar = () => {
       <label htmlFor="search-field" className="sr-only">
         Search all files
       </label>
-      <div className="flex flex-row justify-start items-center">
+      <div className="flex flex-row justify-start items-center mt-[17px] border rounded-[5px] border-gray-600">
         <FiSearch aria-hidden="true" className="w-5 h-5 ml-4" />
         <input
           name="search-field"
           autoComplete="off"
           id="search-field"
-          className="flex-1 bg-transparent border-none placeholder-gray-500 outline-none text-base text-white p-4"
-          placeholder="Search"
+          className="flex-1 bg-transparent border-white placeholder-gray-500 outline-none text-base text-white p-4"
+          placeholder="Search for song name or artist name"
           type="search"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
